@@ -93,6 +93,7 @@
     const btn = foot?.querySelector("button, a");
     if (p?.soldOut) return `<button type="button" class="tv-status" disabled>Sold out</button>`;
     if (!btn) return "";
+    if (btn.disabled) return `<button type="button" class="tv-status" disabled>${esc(btn.textContent.trim())}</button>`; // e.g. "Coming soon"
     const label = btn.textContent.trim();
     const big = { Book: "Book now", "Book tickets": "Book tickets", Add: "Add to basket", "Pre-order": "Pre-order", Subscribe: "Subscribe", "Buy class": "Buy this class", Register: "Register", "Get tickets": "Get tickets" }[label] || label;
     if (btn.tagName === "A") return `<a class="btn pp-buy" href="${esc(btn.getAttribute("href"))}">${esc(big)}</a>`;
