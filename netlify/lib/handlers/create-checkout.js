@@ -25,9 +25,9 @@
    ========================================================== */
 
 const Stripe = require("stripe");
-const { CATALOG, CATALOG_SETTINGS, isValidSeriesDate, bulkPickupDates } = require("../../js/catalog.js");
-const capacity = require("../lib/event-capacity.js");
-const { FARM_ADDRESS } = require("../lib/farm.js");
+const { CATALOG, CATALOG_SETTINGS, isValidSeriesDate, bulkPickupDates } = require("../../../js/catalog.js");
+const capacity = require("../event-capacity.js");
+const { FARM_ADDRESS } = require("../farm.js");
 const SCHEDULES = CATALOG_SETTINGS.schedules;
 
 const json = (status, body) => ({

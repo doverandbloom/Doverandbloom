@@ -11,8 +11,8 @@
    ========================================================== */
 
 const Stripe = require("stripe");
-const cap = require("../lib/event-capacity.js");
-const { CATALOG_SETTINGS } = require("../../js/catalog.js");
+const cap = require("../event-capacity.js");
+const { CATALOG_SETTINGS } = require("../../../js/catalog.js");
 
 exports.handler = async (event) => {
   if (event.httpMethod !== "POST") return { statusCode: 405, body: "Method not allowed" };

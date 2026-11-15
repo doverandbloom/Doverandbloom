@@ -4,7 +4,7 @@ Static website with a basket, ticket booking with a signed liability waiver, and
 
 ## How checkout works
 1. A customer adds items. On-farm tickets (U-pick, events, in-person classes) open a booking window where the buyer picks a date or time, reads the waiver summary, types their full name as an electronic signature, and checks the agreement box. U-pick buyers choose one of the U-pick days, which show live "spots left". Without that signature the ticket can't be added to the basket.
-2. **Secure Checkout** sends the basket to `netlify/functions/create-checkout.js`. That function looks up the real prices in `js/catalog.js`, rejects any ticket without a current signed waiver, and creates a Stripe Checkout session.
+2. **Secure Checkout** sends the basket to `netlify/lib/handlers/create-checkout.js`. That function looks up the real prices in `js/catalog.js`, rejects any ticket without a current signed waiver, and creates a Stripe Checkout session.
 3. The customer pays on Stripe's hosted page. Card details never reach this website.
 4. In your Stripe Dashboard, each payment carries the waiver record in its metadata: signer name, timestamp, terms version, and whether minors are in the party.
 
