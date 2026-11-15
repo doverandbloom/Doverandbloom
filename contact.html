@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Dover &amp; Bloom</title>
+  <meta name="description" content="Contact Dover & Bloom in Lakewood, Colorado about private events, bloom bar rentals, bulk flowers, U-pick tickets and classes.">
+  <link rel="icon" href="images/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/catalog.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/search.js" defer></script>
+  <script src="js/contact.js" defer></script>
+</head>
+<body>
+
+  <div class="announce">Grand Opening Celebration · Sat, Aug 14 · 10 am – 2 pm · free &amp; open to all · <a href="index.html#grand-opening">see details</a></div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="index.html"><img src="images/logo-mark.webp" alt=""><span>Dover &amp; Bloom</span></a>
+      <nav class="nav" id="site-nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="story.html">Our Story</a>
+        <div class="dropdown">
+          <a href="shop.html">Shop</a>
+          <div class="dropdown-menu">
+            <a href="shop.html#u-pick">U-Pick Flower Tickets</a>
+            <a href="shop.html#events">Events</a>
+            <a href="shop.html#bulk-buckets">Bulk Flower Buckets</a>
+            <a href="shop.html#flower-csa">Flower CSA</a>
+            <a href="shop.html#bloom-bar">Bloom Bar Rental</a>
+            <a href="shop.html#private-events">Private Events</a>
+            <a href="shop.html#dahlia-tubers">Dahlia Tubers</a>
+            <a href="shop.html#plants-seeds">Plants &amp; Seeds</a>
+            <a href="shop.html#classes">Classes &amp; Webinars</a>
+          </div>
+        </div>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a href="#" class="cart-link" role="button">Basket <span class="cart-count">0</span></a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="search-btn" aria-label="Search the site" title="Search (press /)"><svg aria-hidden="true"><use href="#i-search"/></svg></button>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="wrap">
+        <p class="eyebrow">Contact</p>
+        <h1>Say hello</h1>
+        <p class="lede">Questions about tickets, a bloom bar for your party, a shower in the garden or a bucket of dahlias? Send us a note. We reply within two business days.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap contact-grid">
+        <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contact">
+          <p class="sr-only"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+
+          <div class="field-row">
+            <label for="c-name">Your name<input id="c-name" name="name" type="text" autocomplete="name" required maxlength="100"></label>
+            <label for="c-email">Email<input id="c-email" name="email" type="email" autocomplete="email" required maxlength="150"></label>
+          </div>
+          <div class="field-row">
+            <label for="c-phone">Phone <span class="optional">optional</span><input id="c-phone" name="phone" type="tel" autocomplete="tel" maxlength="30"></label>
+            <label for="c-topic">What's this about?
+              <select id="c-topic" name="topic" required>
+                <option value="general">General question</option>
+                <option value="private-event">Private event on the farm</option>
+                <option value="bloom-bar">Bloom bar rental</option>
+                <option value="bulk-flowers">Bulk flowers</option>
+                <option value="csa">Flower CSA</option>
+                <option value="upick">U-pick tickets</option>
+                <option value="events">Happy hours, classes, yoga &amp; brunch</option>
+                <option value="classes">Classes &amp; webinars</option>
+                <option value="tubers">Dahlia tubers</option>
+                <option value="wholesale">Wholesale for florists</option>
+                <option value="order">An existing order</option>
+                <option value="press">Press or partnerships</option>
+              </select>
+            </label>
+          </div>
+
+          <fieldset class="event-fields" hidden>
+            <legend>Event details</legend>
+            <div class="field-row">
+              <label for="c-date">Preferred date<input id="c-date" name="event-date" type="date"></label>
+              <label for="c-guests">Number of guests<input id="c-guests" name="guests" type="number" min="1" max="200"></label>
+            </div>
+            <div class="field-row">
+              <label for="c-occasion">Occasion
+                <select id="c-occasion" name="occasion">
+                  <option value="">Choose one…</option>
+                  <option>Birthday</option>
+                  <option>Bridal shower</option>
+                  <option>Baby shower</option>
+                  <option>Bachelorette</option>
+                  <option>Wedding</option>
+                  <option>Anniversary</option>
+                  <option>Graduation</option>
+                  <option>Corporate or team event</option>
+                  <option>Other</option>
+                </select>
+              </label>
+              <label for="c-package">Package
+                <select id="c-package" name="package">
+                  <option value="">Not sure yet</option>
+                  <optgroup label="Private events" data-for="private-event">
+                    <option>Garden Party (up to 15)</option>
+                    <option>Bridal Shower / Baby Shower (up to 25)</option>
+                    <option>Custom Celebration (26–50)</option>
+                    <option>Not sure yet, please suggest</option>
+                  </optgroup>
+                  <optgroup label="Bloom bar" data-for="bloom-bar">
+                    <option>Petite Bloom Bar (10–12 guests)</option>
+                    <option>Classic Bloom Bar (15–20 guests)</option>
+                    <option>Grand Bloom Bar (30–40 guests)</option>
+                  </optgroup>
+                </select>
+              </label>
+            </div>
+            <fieldset class="bloombar-addons" hidden>
+              <legend>Add-ons</legend>
+              <label class="check"><input type="checkbox" name="addons" value="Add a florist"><span>Add a florist to help guests build their bouquets ($125 per hour)</span></label>
+            </fieldset>
+            <fieldset class="addons-field" hidden>
+              <legend>Extras you're interested in</legend>
+              <div class="addons-grid"><label class="check"><input type="checkbox" name="addons" value="Bloom bar"><span>Bloom bar</span></label><label class="check"><input type="checkbox" name="addons" value="Bouquet making workshop"><span>Bouquet making workshop</span></label><label class="check"><input type="checkbox" name="addons" value="Private U-pick"><span>Private U-pick</span></label><label class="check"><input type="checkbox" name="addons" value="Seasonal craft"><span>Seasonal craft</span></label><label class="check"><input type="checkbox" name="addons" value="Guided farm & pollinator walk"><span>Guided farm &amp; pollinator walk</span></label><label class="check"><input type="checkbox" name="addons" value="Morning yoga on the patio"><span>Morning yoga on the patio</span></label><label class="check"><input type="checkbox" name="addons" value="Brunch or long-table dinner"><span>Brunch or long-table dinner</span></label><label class="check"><input type="checkbox" name="addons" value="Flower centerpieces & décor"><span>Flower centerpieces &amp; décor</span></label><label class="check"><input type="checkbox" name="addons" value="Photo session among the flowers"><span>Photo session among the flowers</span></label></div>
+            </fieldset>
+            <label for="c-venue" class="venue-field">Event address or venue<input id="c-venue" name="venue" type="text" maxlength="150" placeholder="Free delivery within 5 miles; a surcharge applies beyond"></label>
+          </fieldset>
+
+          <label for="c-message">Message<textarea id="c-message" name="message" rows="6" required maxlength="3000" placeholder="Tell us a little about what you have in mind."></textarea></label>
+
+          <label class="check"><input type="checkbox" name="newsletter" value="yes"><span>Send me field notes from the farm, with bloom updates, tuber drops and U-pick dates.</span></label>
+
+          <p class="form-error" role="alert"></p>
+          <button class="btn" type="submit">Send message</button>
+          <p class="hint" style="margin-top:12px">We use your details only to reply to you. See our <a href="terms.html#privacy">privacy terms</a>.</p>
+        </form>
+
+        <div class="form-success" hidden tabindex="-1">
+          <svg width="72" height="72"><use href="#i-mail"/></svg>
+          <h2>Thank you!</h2>
+          <p>Your message is on its way to the farm. We'll reply within two business days, and usually sooner.</p>
+          <a class="btn btn--ghost" href="shop.html">Browse the shop</a>
+        </div>
+
+        <aside class="contact-info">
+          <div class="contact-card">
+            <h3>Email</h3>
+            <p class="copyable"><span>andrea@doverandbloom.com</span> <button type="button" class="copy-btn" data-copy="andrea@doverandbloom.com">Copy</button></p>
+            <h3>Where we are</h3>
+            <p>Lakewood, Colorado. We're a small urban farm on a residential street, so we share our exact address with your ticket or booking confirmation.</p>
+            <h3>Farm hours</h3>
+            <p>U-pick: every other weekend, Sat &amp; Sun, 8:00–10:00 am (June–October)<br>Bulk bucket pickup: Fridays, 3:00–6:00 pm<br>Other visits by appointment</p>
+            <h3>Follow along</h3>
+            <p class="social-list"><a class="social" href="https://www.instagram.com/doverandbloom/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Instagram <span>@doverandbloom</span></a><a class="social" href="https://www.facebook.com/doverandbloom" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-fb"/></svg>Facebook <span>Dover&amp;Bloom</span></a></p>
+          </div>
+
+          <div class="faq">
+            <h3>Quick answers</h3>
+            <details>
+              <summary>Can I visit the farm without a ticket?</summary>
+              <p>We're a working farm on a residential street, so visits are by U-pick ticket, event ticket or appointment only. That keeps things calm for our neighbors and the bees.</p>
+            </details>
+            <details>
+              <summary>Do you deliver flowers?</summary>
+              <p>Bulk buckets are farm pickup on Fridays. Flower CSA bouquets are delivered on Fridays within 5 miles of the farm, or picked up at the farm. Bloom bar rentals include free delivery and setup within 5 miles of the farm, with a $5-per-mile surcharge beyond that. Dahlia tubers ship in spring.</p>
+            </details>
+            <details>
+              <summary>How far ahead should I book a private event?</summary>
+              <p>Weekend dates in June and September go fast, so we suggest 6–8 weeks ahead. We confirm requests within two business days.</p>
+            </details>
+            <details>
+              <summary>Do you sell to florists?</summary>
+              <p>Yes. We offer wholesale stems to local florists and designers during the season. Choose “Wholesale for florists” above and we'll send our availability list.</p>
+            </details>
+            <details>
+              <summary>Is the farm accessible?</summary>
+              <p>Our main paths are packed gravel and mostly flat, but the growing rows are uneven. Let us know what you need and we'll do our best to help.</p>
+            </details>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/logo-mark.webp" alt="Dover &amp; Bloom">
+          <p>A father–daughter urban flower farm growing regeneratively for people and pollinators in Lakewood, Colorado.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="story.html">Our Story</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms &amp; Liability Waiver</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="shop.html#u-pick">U-Pick Tickets</a></li>
+            <li><a href="shop.html#events">Events</a></li>
+            <li><a href="shop.html#bulk-buckets">Bulk Flower Buckets</a></li>
+            <li><a href="shop.html#flower-csa">Flower CSA</a></li>
+            <li><a href="shop.html#bloom-bar">Bloom Bar Rental</a></li>
+            <li><a href="shop.html#private-events">Private Events</a></li>
+            <li><a href="shop.html#dahlia-tubers">Dahlia Tubers</a></li>
+            <li><a href="shop.html#plants-seeds">Plants &amp; Seeds</a></li>
+            <li><a href="shop.html#classes">Classes &amp; Webinars</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Visit</h4>
+          <ul>
+            <li>Lakewood, Colorado</li>
+            <li>Farm visits by ticket or appointment</li>
+            <li><a href="contact.html">Send us a message</a></li>
+            <li>andrea@doverandbloom.com</li>
+            <li><a class="social" href="https://www.instagram.com/doverandbloom/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Instagram <span>@doverandbloom</span></a></li>
+            <li><a class="social" href="https://www.facebook.com/doverandbloom" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-fb"/></svg>Facebook <span>Dover&amp;Bloom</span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span data-year>2026</span> Dover &amp; Bloom. All rights reserved. · <a href="terms.html">Terms &amp; Conditions</a> · <a href="terms.html#privacy">Privacy</a></span>
+        <span class="tagline">GROW · GATHER · CREATE</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

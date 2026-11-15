@@ -1,0 +1,15 @@
+{
+  "name": "dover-and-bloom",
+  "private": true,
+  "description": "Dover & Bloom website with secure Stripe checkout",
+  "scripts": {
+    "dev": "netlify dev"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.2.0",
+    "stripe": "^17.7.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
