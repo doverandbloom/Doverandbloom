@@ -403,6 +403,7 @@
   if (!boxes.length) return;
   const SCH = CATALOG_SETTINGS.schedules;
   const today = new Date().toISOString().slice(0, 10);
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const fmt = (iso) => { const [y, m, d] = iso.split("-").map(Number); return new Date(Date.UTC(y, m - 1, d)).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" }); };
   // "8:00 – 10:00 am" / "5:30 pm" → minutes after midnight of the start time
   const startMin = (t) => { const m = t.match(/(\d+):(\d+)\s*(?:–[^ap]*)?(am|pm)?/i); const ap = (t.match(/(am|pm)/i) || [])[1]; let h = +m[1] % 12; if (/pm/i.test(m[3] || ap) && !(/am/i.test(m[3] || "") )) h += 12; return h * 60 + +m[2]; };
@@ -428,13 +429,31 @@
   const render = (avail) => boxes.forEach((box) => {
     const list = (box.dataset.series || "upick").split(",");
     if (list.length > 1) return renderList(box, list, avail);
-    const rows = list.flatMap((k) => seriesDates(k).map((d) => ({ k, d }))).sort((a, b) => (a.d < b.d ? -1 : a.d > b.d ? 1 : 0));
-    box.innerHTML = rows.map(({ k, d }) => {
-      const n = avail && avail[k] ? avail[k][d] : null;
-      const cls = d < today ? "past" : n != null && n <= 0 ? "sold" : n != null && n <= 5 ? "low" : "";
-      const label = n == null ? SCH[k].time : n <= 0 ? "Sold out" : `${n} of ${SCH[k].capacity} spots left`;
-      return `<div class="upick-day ${cls}" data-s="${k}">${list.length > 1 ? `<em>${SCH[k].name}</em>` : ""}<strong>${fmt(d)}</strong><span>${label}</span></div>`;
-    }).join("");
+    // One series (U-pick): a dropdown of upcoming days with spots left, plus a Book button
+    const k = list[0];
+    const id = bookId(k);
+    const days = seriesDates(k).filter((d) => d >= today);
+    const left = (d) => (avail && avail[k] ? avail[k][d] : null);
+    const prev = box.querySelector("select")?.value;
+    const firstOpen = days.find((d) => !(left(d) != null && left(d) <= 0));
+    const chosen = prev && days.includes(prev) && !(left(prev) != null && left(prev) <= 0) ? prev : firstOpen;
+    const selId = `date-pick-${k}`;
+    if (!days.length) { box.innerHTML = `<p class="date-pick-note">This season's ${esc(SCH[k].name)} days have passed. Sign up for our newsletter to hear about next season first.</p>`; return; }
+    box.classList.add("date-pick");
+    box.innerHTML = `
+      <label for="${selId}">Choose a day</label>
+      <div class="date-pick-row">
+        <select id="${selId}">${days.map((d) => {
+          const n = left(d);
+          const sold = n != null && n <= 0;
+          const note = n == null ? SCH[k].time : sold ? "Sold out" : n <= 5 ? `Only ${n} left` : `${n} of ${SCH[k].capacity} spots left`;
+          return `<option value="${d}"${sold ? " disabled" : ""}${d === chosen ? " selected" : ""}>${fmt(d)} · ${note}</option>`;
+        }).join("")}</select>
+        <button type="button" class="btn" data-product="${id}" data-date="${chosen || ""}"${chosen ? "" : " disabled"}>${chosen ? "Book this day" : "Sold out"}</button>
+      </div>
+      <p class="date-pick-note">${esc(SCH[k].time)} · ${days.length} days left this season${avail ? "" : " · checking spots…"}</p>`;
+    const sel = box.querySelector("select"), btn = box.querySelector("button");
+    sel.addEventListener("change", () => { btn.dataset.date = sel.value; });
   });
   render(null);
   (window.dbLoadAvailability ? window.dbLoadAvailability() : Promise.resolve(null)).then((a) => a && render(a));
