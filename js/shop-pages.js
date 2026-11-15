@@ -13,6 +13,8 @@
   const overview = document.querySelector(".shop-overview");
   const pills = [...document.querySelectorAll(".shop-nav a")];
   const name = (sec) => sec.querySelector("h2").textContent;
+  // Categories with a single ticket skip the category page and open that ticket's page
+  const DIRECT = { "u-pick": "product.html#upick-jar" };
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
   // Overview tiles, built from each category's own heading, intro and first picture
@@ -23,7 +25,7 @@
     const count = sec.querySelectorAll("article.product").length;
     const icon = sec.id === "dahlia-tubers" ? '<svg viewBox="0 0 100 100"><use href="#i-dahlia"/></svg>' : art?.querySelector("svg")?.outerHTML || "";
     const bg = sec.id === "dahlia-tubers" ? "bg-coral" : [...(art?.classList || [])].filter((c) => c.startsWith("bg-")).join(" ");
-    return `<a class="shop-cat" href="shop.html#${sec.id}">
+    return `<a class="shop-cat" href="${DIRECT[sec.id] || `shop.html#${sec.id}`}">
       <span class="shop-cat-art ${bg}">${icon}</span>
       <span class="shop-cat-body"><span class="shop-cat-name">${esc(name(sec))}</span><span class="shop-cat-blurb">${esc(blurb)}</span>
       <span class="shop-cat-more">${sec.id === "dahlia-tubers" ? "Browse varieties" : `${count} ${count === 1 ? "item" : "items"}`} →</span></span>
@@ -45,6 +47,7 @@
   function show() {
     const { sec, el, other } = currentCategory();
     if (other) return; // another page is showing (preview)
+    if (sec && DIRECT[sec.id] && !document.querySelector("[data-view]")) { location.replace(DIRECT[sec.id]); return; } // old links and bookmarks
     sections.forEach((s) => (s.hidden = sec ? s !== sec : true));
     overview.hidden = !!sec;
     head.hidden = !!sec;

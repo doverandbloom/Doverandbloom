@@ -177,7 +177,7 @@
   }
 
   const crumbs = (secId, secName, title) => `
-    <nav class="pp-crumbs" aria-label="Breadcrumb"><a href="shop.html">Shop</a><span>›</span><a href="shop.html#${secId}">${esc(secName)}</a><span>›</span><span aria-current="page">${esc(title)}</span></nav>`;
+    <nav class="pp-crumbs" aria-label="Breadcrumb"><a href="shop.html">Shop</a><span>›</span>${secId === "u-pick" ? "" : `<a href="shop.html#${secId}">${esc(secName)}</a><span>›</span>`}<span aria-current="page">${esc(title)}</span></nav>`; // U-pick has no category page of its own
   const notFound = () => `
     <div class="pp-missing"><h1>We couldn't find that item</h1><p>It may have sold out or moved. <a href="shop.html">Browse the shop</a> or <a href="contact.html">ask us</a>.</p></div>`;
 
