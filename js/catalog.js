@@ -333,6 +333,11 @@ const CATALOG = {
   "seed-pollinator":   { name: "Front Range Pollinator Seed Blend",   price: 1400, kind: "product", group: "seed" },
   "plant-native-flat": { name: "Native Plant Starter Flat (pickup)",  price: 4200, kind: "product", group: "plant", pickup: true },
   "plant-seedlings":   { name: "Cut-Flower Seedling Six-Pack (pickup)", price: 1800, kind: "product", group: "plant", pickup: true },
+  "plant-phenomenal-lavender": { name: "Phenomenal Lavender (2.5\" pot, pickup)", price: 1200, kind: "product", group: "plant", pickup: true },
+  "plant-milkweed": { name: "Milkweed (2.5\" pot, pickup)", price: 800, kind: "product", group: "plant", pickup: true },
+  "plant-agastache": { name: "Agastache (2.5\" pot, pickup)", price: 800, kind: "product", group: "plant", pickup: true },
+  "plant-nepeta": { name: "Nepeta (Catmint) (2.5\" pot, pickup)", price: 800, kind: "product", group: "plant", pickup: true },
+  "plant-rudbeckia": { name: "Rudbeckia (Black-Eyed Susan) (2.5\" pot, pickup)", price: 800, kind: "product", group: "plant", pickup: true },
 
   // ---------- Classes & webinars ----------
   "class-tuber-dividing": { name: "Dahlia Tuber Dividing Workshop", price: 6500, kind: "class", onSite: true, date: "2027-03-13", time: "10:00 am – 12:00 pm" },
