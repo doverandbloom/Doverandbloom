@@ -11,6 +11,6 @@ exports.handler = async (event) => {
     };
   } catch (err) {
     console.error("availability error:", err.message);
-    return { statusCode: 500, headers: { "Content-Type": "application/json" }, body: JSON.stringify({ error: "Availability unavailable" }) };
+    return { statusCode: 500, headers: { "Content-Type": "application/json" }, body: JSON.stringify({ error: "Availability unavailable", detail: `${err.name}: ${err.message}`.slice(0, 300), hasBlobsContext: !!(event && event.blobs) }) }; // TEMP diagnostic
   }
 };
