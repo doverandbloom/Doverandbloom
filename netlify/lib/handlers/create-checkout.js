@@ -81,6 +81,7 @@ exports.handler = async (event) => {
     }
 
     let description = "";
+    let when = ""; // date and time, also put in the item name so Stripe's receipt email shows it
     if (product.kind === "series") {
       const sched = SCHEDULES[product.series];
       if (!sched || !isValidSeriesDate(product.series, raw.date)) {
@@ -91,6 +92,7 @@ exports.handler = async (event) => {
         spotsWanted[key] = (spotsWanted[key] || 0) + qty * (product.spots || 1);
       }
       description = `${prettyDate(raw.date)} · ${sched.time} · ${sched.receiptNote}`;
+      when = `${prettyDate(raw.date)}, ${sched.time}`;
     } else if (product.kind === "pickup") {
       if (!bulkPickupDates(product).includes(raw.date)) {
         return json(400, { error: `Please choose an available Friday pickup date for ${product.name}.` });
@@ -98,12 +100,14 @@ exports.handler = async (event) => {
       const pal = CATALOG_SETTINGS.palettes[raw.palette];
       if (product.palette && !pal) return json(400, { error: `Please choose a color palette for ${product.name}.` });
       description = `${pal ? `Colors: ${pal.name} · ` : ""}Farm pickup ${prettyDate(raw.date)} · ${CATALOG_SETTINGS.bulk.time}`;
+      when = `Pickup ${prettyDate(raw.date)}, ${CATALOG_SETTINGS.bulk.time}`;
       metadata[`pickup_${i + 1}`] = `${raw.id} x${qty} | ${raw.date}${pal ? ` | colors: ${pal.name}` : ""}`;
     } else if (product.date) {
       if (product.date < new Date().toISOString().slice(0, 10)) {
         return json(400, { error: `${product.name} has already taken place.` });
       }
       description = `${prettyDate(product.date)} · ${product.time}`;
+      when = `${prettyDate(product.date)}, ${product.time}`;
     }
 
     // ---- Terms & liability waiver gate ----
@@ -152,6 +156,10 @@ exports.handler = async (event) => {
     }
 
     const visitsFarm = product.onSite || product.kind === "pickup" || (product.kind === "subscription" && raw.fulfillment === "pickup");
+    // Stripe's receipt email lists item names only, so the name carries the date, time and address
+    let itemName = product.name + (when ? ` · ${when}` : "");
+    if (product.kind === "subscription" && raw.fulfillment === "pickup") itemName += ` · Farm pickup ${CATALOG_SETTINGS.csa.deliveryDay}s, ${CATALOG_SETTINGS.csa.pickupTime}`;
+    if (visitsFarm) itemName += ` · ${FARM_ADDRESS}`;
     if (visitsFarm) {
       farmVisit = true;
       description += `${description ? " · " : ""}Farm: ${FARM_ADDRESS}`;
@@ -162,7 +170,7 @@ exports.handler = async (event) => {
       price_data: {
         currency: CATALOG_SETTINGS.currency,
         unit_amount: product.price, // ← server-side price, never the browser's
-        product_data: { name: product.name, ...(description && { description: clean(description, 300) }) },
+        product_data: { name: clean(itemName, 250), ...(description && { description: clean(description, 300) }) },
         ...(product.kind === "subscription" && { recurring: { interval: product.interval, interval_count: product.intervalCount } }),
       },
     });
