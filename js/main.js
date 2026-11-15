@@ -72,6 +72,25 @@ const SPRITE = `
     <path d="M18 86 C18 40 48 14 88 12 C88 54 62 84 18 86 Z" fill="#7d9660" stroke="#2f4321" stroke-width="2"/>
     <path d="M18 86 C40 62 58 42 78 22 M38 66 L36 46 M52 52 L52 34 M44 60 L62 60 M58 46 L72 46" stroke="#2f4321" stroke-width="1.6" fill="none"/>
   </symbol>
+  <symbol id="i-greenhouse" viewBox="0 0 100 100">
+    <path d="M12 48 L50 18 L88 48 L88 86 L12 86 Z" fill="#eef3ea" stroke="#2f4321" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M31 33 L31 86 M50 18 L50 62 M69 33 L69 86 M12 62 L88 62" stroke="#2f4321" stroke-width="1.4" opacity=".55"/>
+    <rect x="42" y="62" width="16" height="24" fill="#dfe6cf" stroke="#2f4321" stroke-width="1.6"/>
+    <path d="M22 86 C22 78 22 74 22 70 M22 76 C17 76 15 72 15 69 C19 69 22 72 22 76 M22 73 C26 72 28 69 28 66 C24 66 22 69 22 73" stroke="#4d6438" stroke-width="1.6" fill="#7d9660"/>
+    <g transform="translate(78 74)">${Array.from({ length: 8 }, (_, i) => `<ellipse rx="2.4" ry="6" transform="rotate(${i * 45}) translate(0 -5)" fill="#e9876b" stroke="#2f4321" stroke-width=".6"/>`).join("")}<circle r="2.6" fill="#e8953a"/></g>
+  </symbol>
+  <symbol id="i-cat" viewBox="0 0 100 100">
+    <path d="M70 84 C86 82 92 70 86 58 C83 52 77 54 80 60 C83 67 79 75 68 76" fill="#d9a066" stroke="#2f4321" stroke-width="1.8" stroke-linejoin="round"/>
+    <path d="M30 90 C26 72 30 56 40 50 L60 50 C70 56 74 72 70 90 Z" fill="#d9a066" stroke="#2f4321" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M33 34 L31 12 L45 25 Z M67 34 L69 12 L55 25 Z" fill="#d9a066" stroke="#2f4321" stroke-width="2" stroke-linejoin="round"/>
+    <ellipse cx="50" cy="38" rx="20" ry="17" fill="#d9a066" stroke="#2f4321" stroke-width="2"/>
+    <path d="M34 17 L36 27 L41 25 Z M66 17 L64 27 L59 25 Z" fill="#f5c3a6"/>
+    <ellipse cx="42" cy="36" rx="2.6" ry="3.6" fill="#2f4321"/><ellipse cx="58" cy="36" rx="2.6" ry="3.6" fill="#2f4321"/>
+    <path d="M47 43 L53 43 L50 46 Z" fill="#e9876b"/>
+    <path d="M50 46 C49 49 46 50 44 49 M50 46 C51 49 54 50 56 49" stroke="#2f4321" stroke-width="1.2" fill="none"/>
+    <path d="M38 44 L24 42 M38 47 L25 49 M62 44 L76 42 M62 47 L75 49" stroke="#2f4321" stroke-width="1" opacity=".7"/>
+    <path d="M40 66 C44 64 48 64 50 66 M50 66 C52 64 56 64 60 66" stroke="#2f4321" stroke-width="1.2" fill="none" opacity=".5"/>
+  </symbol>
   <symbol id="i-hands" viewBox="0 0 100 100">
     <path d="M8 64 C22 60 36 66 50 74 C64 66 78 60 92 64 L88 82 C74 78 62 82 50 90 C38 82 26 78 12 82 Z" fill="#f5c3a6" stroke="#2f4321" stroke-width="1.8"/>
     <path d="M50 70 C50 54 50 44 50 34" stroke="#4d6438" stroke-width="2.6"/>
