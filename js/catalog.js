@@ -25,7 +25,7 @@ const EVENT_CAP = 20; // happy hours, classes, yoga and brunch: 20 participants 
 // (one-time special events have capacity: null = no limit; private events are booked by request, up to 50 guests)
 
 const CATALOG_SETTINGS = {
-  waiverVersion: "2026-11-08",          // bump when you change terms.html
+  waiverVersion: "2026-11-15",          // bump when you change terms.html
   currency: "usd",
   maxTicketsPerOrder: 12,
   /* ---------- Recurring events ----------
@@ -55,7 +55,7 @@ const CATALOG_SETTINGS = {
       ],
     },
     happyhour: {
-      name: "BYOB Flower Happy Hour",
+      name: "Flower Happy Hour",
       summary: "Thursday evenings, all ages welcome",
       firstDate: "2027-06-17", dayOffsets: [0], everyWeeks: 2, lastDate: "2027-10-15",
       time: "5:30 – 7:00 pm",
@@ -63,12 +63,11 @@ const CATALOG_SETTINGS = {
       closedDates: [],
       ticketChoice: true,                  // single / plus-one chosen from a dropdown when booking
       unit: "person",
-      receiptNote: "BYOB (21+ to drink, bring ID) · Check in at the front",
+      receiptNote: "All ages welcome · Check in at the front",
       details: [
         "Happy hour runs from 5:30 to 7:00 pm. Check-in happens at the front of the farm.",
-        "Guests of all ages are welcome. Bring your own beer or wine if you like; anyone drinking must be 21 or older with ID. We provide cups, ice, water and light snacks.",
+        "Guests of all ages are welcome. We provide water and light snacks.",
         "Wander the field, cut a jar of flowers and build a bouquet with help from our florists. Jars and flower food are provided.",
-        "Please drink responsibly and plan a safe ride home.",
       ],
     },
     datenight: {
@@ -301,8 +300,8 @@ const CATALOG = {
   // `spots` = how many of a date's capacity one purchase uses
   "upick-jar":          { name: "U-Pick Ticket (1 person)",                 price: 6500,  kind: "series", series: "upick",     onSite: true, spots: 1 },
   "upick-plus-one":     { name: "U-Pick Plus-One Bundle (2 people)",        price: 11000, kind: "series", series: "upick",     onSite: true, spots: 2 },
-  "happyhour-single":   { name: "BYOB Flower Happy Hour (1 person)",        price: 6500,  kind: "series", series: "happyhour", onSite: true, spots: 1 },
-  "happyhour-plus-one": { name: "BYOB Flower Happy Hour Plus-One (2 people)", price: 11000, kind: "series", series: "happyhour", onSite: true, spots: 2 },
+  "happyhour-single":   { name: "Flower Happy Hour (1 person)",        price: 6500,  kind: "series", series: "happyhour", onSite: true, spots: 1 },
+  "happyhour-plus-one": { name: "Flower Happy Hour Plus-One (2 people)", price: 11000, kind: "series", series: "happyhour", onSite: true, spots: 2 },
   "datenight-couple":   { name: "Friday Flower Date Night (per couple)",  price: 11000, kind: "series", series: "datenight", onSite: true, spots: 2, unit: "couple" },
   "bouquet-class":      { name: "Bouquet Making Class",                     price: 9500,  kind: "series", series: "bouquet",   onSite: true, spots: 1 },
   "suncatcher-class":   { name: "DIY Suncatcher Class",                     price: 6500,  kind: "series", series: "suncatcher", onSite: true, spots: 1 },

@@ -22,7 +22,7 @@ Static website with a basket, ticket booking with a signed liability waiver, and
 
 ## Everyday edits
 - **Prices, dates, sold out, and every schedule** are in `js/catalog.js`. The website and the checkout both read from this file.
-  - Recurring events live in `CATALOG_SETTINGS.schedules`: U-pick, BYOB Flower Happy Hour, Bouquet Making, DIY Suncatcher, Wreath Making, Bloom & Breathe and Brunch & Blooms. Each has a `firstDate`, repeats every `everyWeeks` until `lastDate`, and has its own `time`, `capacity` and `details` (shown when booking and at checkout).
+  - Recurring events live in `CATALOG_SETTINGS.schedules`: U-pick, Flower Happy Hour, Bouquet Making, DIY Suncatcher, Wreath Making, Bloom & Breathe and Brunch & Blooms. Each has a `firstDate`, repeats every `everyWeeks` until `lastDate`, and has its own `time`, `capacity` and `details` (shown when booking and at checkout).
   - Limits: U-pick 15 per day; happy hours, classes, yoga and brunch 20 per date (`EVENT_CAP`). One-time special events have `capacity: null` (no limit). Private events (up to 50 guests) are booked by request through the contact form.
   - To cancel a single date, add it to that schedule's `closedDates`.
 - **If you change `terms.html`**, update `waiverVersion` in `js/catalog.js` and the version/date at the top of the terms page, so new buyers sign the new version.
