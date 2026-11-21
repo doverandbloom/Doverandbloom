@@ -25,7 +25,7 @@ const EVENT_CAP = 20; // happy hours, classes, yoga and brunch: 20 participants 
 // (one-time special events have capacity: null = no limit; private events are booked by request, up to 50 guests)
 
 const CATALOG_SETTINGS = {
-  waiverVersion: "2026-11-15",          // bump when you change terms.html
+  waiverVersion: "2026-11-21",          // bump when you change terms.html
   currency: "usd",
   maxTicketsPerOrder: 12,
   /* ---------- Recurring events ----------

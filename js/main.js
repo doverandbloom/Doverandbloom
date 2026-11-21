@@ -275,3 +275,18 @@ document.addEventListener("click", (e) => {
   if (!card || e.target.closest("a, button, input, select, label")) return;
   card.querySelector(".item-link")?.click();
 });
+
+// ---- Terms page: land on the linked section once fonts have loaded ----
+// (the browser jumps to #section before web fonts finish, which shifts the page)
+if (location.hash && document.querySelector(".legal")) {
+  const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+  const land = () => {
+    const header = document.querySelector(".site-header");
+    const offset = (header ? header.getBoundingClientRect().height : 80) + 24;
+    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: "instant" });
+  };
+  if (target) {
+    if (document.fonts) document.fonts.ready.then(land);
+    window.addEventListener("load", () => setTimeout(land, 60));
+  }
+}

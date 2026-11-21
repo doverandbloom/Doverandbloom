@@ -75,6 +75,8 @@
     const sched = p && p.kind === "series" ? S.schedules[p.series] : null;
     if (sched?.details?.length) parts.push(`<h3 class="tv-h">Good to know</h3><ul class="pp-list">${sched.details.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>`);
     else if (sec.querySelector(".visit-details")) parts.push(`<h3 class="tv-h">Good to know</h3>${sec.querySelector(".visit-details ul").outerHTML.replace("<ul", '<ul class="pp-list"')}`);
+    // every ticket that brings guests to the farm shows our welcoming-farm note
+    if (p?.onSite) parts.push(`<p class="pp-welcome">We’re building a <strong>kind, welcoming farm</strong> for everyone. We reserve the right to refuse service to anyone who isn’t on board with that. <a href="terms.html#welcoming">Read more</a></p>`);
     const strip = [...sec.querySelectorAll(".info-strip > div")];
     if (strip.length) parts.push(`<h3 class="tv-h tv-h--rule">Frequently asked questions</h3>${strip.map((d) => {
       const title = d.querySelector("strong").textContent;
