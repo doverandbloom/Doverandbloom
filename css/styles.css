@@ -1358,3 +1358,6 @@ article.product[data-item]:hover { box-shadow: 0 18px 34px -24px rgba(47, 67, 33
 .pp-welcome strong { color: var(--green); }
 /* anchored headings clear the sticky header */
 .legal h2[id], .legal h3[id], h2[id], h3[id] { scroll-margin-top: 110px; }
+
+/* hidden shop items (remove data-off in the HTML to bring one back) */
+[data-off] { display: none !important; }

@@ -28,7 +28,7 @@
     if (shopItems) return shopItems;
     const html = await (await fetch("shop.html")).text();
     const doc = new DOMParser().parseFromString(html, "text/html");
-    shopItems = [...doc.querySelectorAll("article.product[data-item]")].map((card) => {
+    shopItems = [...doc.querySelectorAll("article.product[data-item]")].filter((card) => !card.closest("[data-off]")).map((card) => { // hidden items have no page
       const sec = card.closest("section.shop-section");
       return { id: card.dataset.item, card, sec, section: { id: sec.id, name: sec.querySelector("h2").textContent } };
     });

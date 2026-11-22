@@ -30,6 +30,7 @@
     const h1 = main.querySelector("h1");
     add(h1 ? h1.textContent : PAGE_NAMES[page], main.querySelector(".lede")?.textContent || "", null, "Page");
 
+    main.querySelectorAll("[data-off]").forEach((el) => el.remove()); // hidden items aren't searchable
     main.querySelectorAll(".product").forEach((el) => {
       const section = el.closest("section")?.querySelector("h2")?.textContent || "Shop";
       add(el.querySelector("h3")?.textContent,

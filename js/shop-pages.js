@@ -6,12 +6,12 @@
    In the single-file preview the address looks like #shop--events.
    ========================================================== */
 (() => {
-  const sections = [...document.querySelectorAll(".shop-section")];
+  const sections = [...document.querySelectorAll(".shop-section:not([data-off])")]; // hidden categories are skipped
   if (!sections.length) return;
   const head = document.querySelector(".page-head");
   const crumbs = document.querySelector(".shop-crumbs");
   const overview = document.querySelector(".shop-overview");
-  const pills = [...document.querySelectorAll(".shop-nav a")];
+  const pills = [...document.querySelectorAll(".shop-nav a:not([data-off])")];
   const name = (sec) => sec.querySelector("h2").textContent;
   // Categories with a single ticket skip the category page and open that ticket's page
   const DIRECT = { "u-pick": "product.html#upick-jar" };
@@ -41,6 +41,7 @@
     if (!anchor) return { sec: null };
     const el = document.getElementById(anchor);
     const sec = el && (el.classList.contains("shop-section") ? el : el.closest(".shop-section"));
+    if (sec && sec.hasAttribute("data-off")) return { sec: null }; // hidden category: show the shop overview
     return { sec, el: sec && el !== sec ? el : null };
   }
 

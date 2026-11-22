@@ -316,12 +316,12 @@ const CATALOG = {
   "happyhour-single":   { name: "Flower Happy Hour (1 person)",        price: 6500,  kind: "series", series: "happyhour", onSite: true, spots: 1 },
   "happyhour-plus-one": { name: "Flower Happy Hour Plus-One (2 people)", price: 11000, kind: "series", series: "happyhour", onSite: true, spots: 2 },
   "datenight-couple":   { name: "Friday Flower Date Night (per couple)",  price: 11000, kind: "series", series: "datenight", onSite: true, spots: 2, unit: "couple" },
-  "bouquet-class":      { name: "Bouquet Making Class",                     price: 9500,  kind: "series", series: "bouquet",   onSite: true, spots: 1 },
-  "suncatcher-class":   { name: "DIY Suncatcher Class",                     price: 6500,  kind: "series", series: "suncatcher", onSite: true, spots: 1 },
-  "pumpkin-class":      { name: "Pumpkin Decorating Class",                 price: 7500,  kind: "series", series: "pumpkin",   onSite: true, spots: 1 },
-  "wreath-class":       { name: "Wreath Making Class",                      price: 9500,  kind: "series", series: "wreath",    onSite: true, spots: 1 },
-  "christmas-wreath-class": { name: "Christmas Wreath Making Class",        price: 11000, kind: "series", series: "christmaswreath", onSite: true, spots: 1 },
-  "bloom-breathe":      { name: "Bloom & Breathe (yoga + bouquets)",        price: 8500,  kind: "series", series: "breathe",   onSite: true, spots: 1 },
+  "bouquet-class":      { hidden: true, name: "Bouquet Making Class",                     price: 9500,  kind: "series", series: "bouquet",   onSite: true, spots: 1 },
+  "suncatcher-class":   { hidden: true, name: "DIY Suncatcher Class",                     price: 6500,  kind: "series", series: "suncatcher", onSite: true, spots: 1 },
+  "pumpkin-class":      { hidden: true, name: "Pumpkin Decorating Class",                 price: 7500,  kind: "series", series: "pumpkin",   onSite: true, spots: 1 },
+  "wreath-class":       { hidden: true, name: "Wreath Making Class",                      price: 9500,  kind: "series", series: "wreath",    onSite: true, spots: 1 },
+  "christmas-wreath-class": { hidden: true, name: "Christmas Wreath Making Class",        price: 11000, kind: "series", series: "christmaswreath", onSite: true, spots: 1 },
+  "bloom-breathe":      { hidden: true, name: "Bloom & Breathe (yoga + bouquets)",        price: 8500,  kind: "series", series: "breathe",   onSite: true, spots: 1 },
   "brunch-blooms":      { name: "Brunch & Blooms",                          price: 9500,  kind: "series", series: "brunch",    onSite: true, spots: 1 },
 
   // ---------- Flower CSA (recurring subscriptions) ----------
@@ -341,27 +341,27 @@ const CATALOG = {
   "event-field-supper":    { name: "Long-Table Supper in the Field", price: 12500, kind: "series", series: "fieldsupper",    onSite: true, spots: 1, adultsOnly: true },
 
   // ---------- Plants & seeds ----------
-  "seed-snapdragon":   { name: "Snapdragon Seed Mix",                 price: 500,  kind: "product", group: "seed" },
-  "seed-strawflower":  { name: "Strawflower 'Apricot Mix' Seed",      price: 500,  kind: "product", group: "seed" },
-  "seed-pollinator":   { name: "Front Range Pollinator Seed Blend",   price: 1400, kind: "product", group: "seed" },
-  "plant-native-flat": { name: "Native Plant Starter Flat (pickup)",  price: 4200, kind: "product", group: "plant", pickup: true },
-  "plant-seedlings":   { name: "Cut-Flower Seedling Six-Pack (pickup)", price: 1800, kind: "product", group: "plant", pickup: true },
-  "plant-phenomenal-lavender": { name: "Phenomenal Lavender (2.5\" pot, pickup)", price: 1200, kind: "product", group: "plant", pickup: true },
-  "plant-milkweed": { name: "Milkweed (2.5\" pot, pickup)", price: 800, kind: "product", group: "plant", pickup: true },
-  "plant-agastache": { name: "Agastache (2.5\" pot, pickup)", price: 800, kind: "product", group: "plant", pickup: true },
-  "plant-nepeta": { name: "Nepeta (Catmint) (2.5\" pot, pickup)", price: 800, kind: "product", group: "plant", pickup: true },
-  "plant-rudbeckia": { name: "Rudbeckia (Black-Eyed Susan) (2.5\" pot, pickup)", price: 800, kind: "product", group: "plant", pickup: true },
+  "seed-snapdragon":   { hidden: true, name: "Snapdragon Seed Mix",                 price: 500,  kind: "product", group: "seed" },
+  "seed-strawflower":  { hidden: true, name: "Strawflower 'Apricot Mix' Seed",      price: 500,  kind: "product", group: "seed" },
+  "seed-pollinator":   { hidden: true, name: "Front Range Pollinator Seed Blend",   price: 1400, kind: "product", group: "seed" },
+  "plant-native-flat": { hidden: true, name: "Native Plant Starter Flat (pickup)",  price: 4200, kind: "product", group: "plant", pickup: true },
+  "plant-seedlings":   { hidden: true, name: "Cut-Flower Seedling Six-Pack (pickup)", price: 1800, kind: "product", group: "plant", pickup: true },
+  "plant-phenomenal-lavender": { hidden: true, name: "Phenomenal Lavender (2.5\" pot, pickup)", price: 1200, kind: "product", group: "plant", pickup: true },
+  "plant-milkweed": { hidden: true, name: "Milkweed (2.5\" pot, pickup)", price: 800, kind: "product", group: "plant", pickup: true },
+  "plant-agastache": { hidden: true, name: "Agastache (2.5\" pot, pickup)", price: 800, kind: "product", group: "plant", pickup: true },
+  "plant-nepeta": { hidden: true, name: "Nepeta (Catmint) (2.5\" pot, pickup)", price: 800, kind: "product", group: "plant", pickup: true },
+  "plant-rudbeckia": { hidden: true, name: "Rudbeckia (Black-Eyed Susan) (2.5\" pot, pickup)", price: 800, kind: "product", group: "plant", pickup: true },
 
   // ---------- Classes & webinars ----------
-  "class-tuber-dividing": { name: "Dahlia Tuber Dividing Workshop", price: 6500, kind: "class", onSite: true, date: "2027-03-13", time: "10:00 am – 12:00 pm" },
+  "class-tuber-dividing": { hidden: true, name: "Dahlia Tuber Dividing Workshop", price: 6500, kind: "class", onSite: true, date: "2027-03-13", time: "10:00 am – 12:00 pm" },
   // On-demand video classes: bought once, streamed or downloaded any time.
   // The video links live in Netlify environment variables (see README), never in this file.
-  "ondemand-regenerative": { name: "On-Demand Class: What Is Regenerative Farming and How to Implement It in Your Own Garden", price: 3000, kind: "ondemand", length: "90 min" },
-  "ondemand-compost":      { name: "On-Demand Class: How to Build and Make Compost", price: 3000, kind: "ondemand", length: "75 min" },
-  "ondemand-soil":         { name: "On-Demand Class: How to Amend Soil", price: 3000, kind: "ondemand", length: "75 min" },
-  "ondemand-cover-crops":  { name: "On-Demand Class: Cover Cropping 101: Why Diversity Matters", price: 2500, kind: "ondemand", length: "60 min" },
-  "ondemand-dahlias":      { name: "On-Demand Class: The Low Down on Dahlias", price: 3000, kind: "ondemand", length: "90 min" },
-  "webinar-pollinator":   { name: "Webinar: Planting a Pollinator Garden in Colorado", price: 2500, kind: "class", date: "2027-04-15", time: "6:00 – 7:00 pm MT (online)" },
+  "ondemand-regenerative": { hidden: true, name: "On-Demand Class: What Is Regenerative Farming and How to Implement It in Your Own Garden", price: 3000, kind: "ondemand", length: "90 min" },
+  "ondemand-compost":      { hidden: true, name: "On-Demand Class: How to Build and Make Compost", price: 3000, kind: "ondemand", length: "75 min" },
+  "ondemand-soil":         { hidden: true, name: "On-Demand Class: How to Amend Soil", price: 3000, kind: "ondemand", length: "75 min" },
+  "ondemand-cover-crops":  { hidden: true, name: "On-Demand Class: Cover Cropping 101: Why Diversity Matters", price: 2500, kind: "ondemand", length: "60 min" },
+  "ondemand-dahlias":      { hidden: true, name: "On-Demand Class: The Low Down on Dahlias", price: 3000, kind: "ondemand", length: "90 min" },
+  "webinar-pollinator":   { hidden: true, name: "Webinar: Planting a Pollinator Garden in Colorado", price: 2500, kind: "class", date: "2027-04-15", time: "6:00 – 7:00 pm MT (online)" },
 };
 
 /* All dates for a recurring schedule. Used by site AND server. */

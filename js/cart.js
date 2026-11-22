@@ -18,7 +18,7 @@
 
   // ---------- storage ----------
   const KEY = "db-basket-v2";
-  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || "[]").filter((i) => CATALOG[i.id]); } catch { return []; } };
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || "[]").filter((i) => CATALOG[i.id] && !CATALOG[i.id].hidden); } catch { return []; } };
   let basket = load();
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(basket)); } catch { /* private mode */ } renderAll(); };
 

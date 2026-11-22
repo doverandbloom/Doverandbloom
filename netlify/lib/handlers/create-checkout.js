@@ -72,7 +72,7 @@ exports.handler = async (event) => {
 
   for (const [i, raw] of items.entries()) {
     const product = CATALOG[raw.id];
-    if (!product) return json(400, { error: "An item in your basket is no longer available." });
+    if (!product || product.hidden) return json(400, { error: "An item in your basket is no longer available." });
     if (product.soldOut) return json(400, { error: `${product.name} is sold out.` });
 
     const qty = Number(raw.qty);
