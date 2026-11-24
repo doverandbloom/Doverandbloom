@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Sign the Waiver | Dover &amp; Bloom</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="D&amp;B Waiver">
+  <link rel="icon" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/logo-mark.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/catalog.js" defer></script>
+  <script src="js/waiver.js" defer></script>
+</head>
+<body data-page="waiver" class="kiosk">
+  <header class="kiosk-head">
+    <img src="images/logo-mark.webp" alt="">
+    <div><p class="eyebrow">Welcome to the farm</p><h1>Terms &amp; Liability Waiver</h1></div>
+  </header>
+
+  <main class="kiosk-main">
+    <form class="waiver-form" novalidate>
+      <section class="kiosk-card">
+        <h2><span class="kn">1</span> Please read</h2>
+        <p class="hint">Scroll to read the full waiver. Every adult in your party signs their own.</p>
+        <div class="waiver-text" tabindex="0" aria-label="Terms and liability waiver">Loading the waiver…</div>
+        <p class="waiver-version"></p>
+      </section>
+
+      <section class="kiosk-card">
+        <h2><span class="kn">2</span> Your details</h2>
+        <div class="field-row">
+          <label>Full name (first and last)<input name="name" type="text" autocomplete="name" required maxlength="100"></label>
+          <label>Visit date<input name="visitDate" type="date" required></label>
+        </div>
+        <div class="field-row">
+          <label>Email <span class="optional">optional</span><input name="email" type="email" autocomplete="email" maxlength="150" inputmode="email"></label>
+          <label>Phone <span class="optional">optional</span><input name="phone" type="tel" autocomplete="tel" maxlength="30"></label>
+        </div>
+        <label>What are you here for?
+          <select name="activity">
+            <option>U-pick</option><option>Flower Happy Hour</option><option>Friday Flower Date Night</option>
+            <option>Brunch &amp; Blooms</option><option>Private event</option><option>Special event</option><option>Other</option>
+          </select>
+        </label>
+        <label>Children under 18 with you <span class="optional">optional · one name per line</span>
+          <textarea name="minors" rows="2" maxlength="600" placeholder="e.g. Mabel Smith"></textarea>
+        </label>
+        <label class="check guardian-check" hidden><input type="checkbox" name="guardian"><span>I am the parent or legal guardian of the children listed and I agree to these terms on their behalf.</span></label>
+        <input class="hp-field" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+      </section>
+
+      <section class="kiosk-card">
+        <h2><span class="kn">3</span> Sign</h2>
+        <label class="check"><input type="checkbox" name="agree" required><span>I have read and agree to the Dover &amp; Bloom <strong>Terms &amp; Liability Waiver</strong>, including the assumption of risk and release of liability.</span></label>
+        <div class="sig-wrap">
+          <canvas class="sig-pad" aria-label="Sign here with your finger"></canvas>
+          <span class="sig-line">Sign here with your finger</span>
+          <button type="button" class="btn btn--ghost btn--small sig-clear">Clear</button>
+        </div>
+        <p class="form-error" role="alert"></p>
+        <button class="btn kiosk-submit" type="submit">Submit my waiver</button>
+      </section>
+    </form>
+
+    <section class="kiosk-done" hidden tabindex="-1">
+      <svg aria-hidden="true" viewBox="0 0 60 60"><circle cx="30" cy="30" r="28" fill="#7d9660"/><path d="M17 31 L26 40 L44 21" stroke="#fcfaf2" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h2>Thank you, <span class="done-name"></span>!</h2>
+      <p>Your waiver is signed and saved. Enjoy your time on the farm.</p>
+      <p class="hint">Please hand the iPad back to our team. This screen resets in <b class="done-count">10</b> seconds.</p>
+      <button type="button" class="btn btn--ghost kiosk-next">Next guest</button>
+    </section>
+  </main>
+</body>
+</html>

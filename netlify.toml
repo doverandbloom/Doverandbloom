@@ -60,6 +60,17 @@
   status = 404
   force = true
 
+# Waiver pages: never cached, never indexed
+[[headers]]
+  for = "/staff-waivers.html"
+  [headers.values]
+    Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow"
+[[headers]]
+  for = "/waiver.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 # Never cache the checkout function
 [[headers]]
   for = "/.netlify/functions/*"

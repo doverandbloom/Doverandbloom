@@ -86,6 +86,16 @@ To send sign-ups to a different Kit form later, add a `KIT_FORM_ID` variable wit
 
 A hidden spam-trap field quietly drops sign-ups from bots. Until `KIT_API_KEY` is set, the box tells visitors to email you instead.
 
+## Check-in waivers on the farm iPad
+Guests sign the Terms & Liability Waiver at check-in on **doverandbloom.com/waiver.html**. The page shows sections 1–7 of `terms.html` (so it always matches the current terms), takes a finger signature, saves it, thanks the guest and resets for the next person after 10 seconds. Parents list children under 18 and confirm they're the guardian.
+
+- **Saved privately** in Netlify Blobs (store `waivers`), one record per signature: name, email, phone, visit date, activity, children, waiver version, time, device and the signature image. Nothing is on a public page. Code: `netlify/functions/sign-waiver.mjs`.
+- **Staff page:** **doverandbloom.com/staff-waivers.html**. Look up a day, search by name/email/phone, view signatures, print or download a CSV. Code: `netlify/functions/list-waivers.mjs`.
+- **Set the staff password:** in Netlify → Environment variables add `WAIVER_ADMIN_PASSWORD` (at least 8 characters, tick *Contains secret values*), then redeploy. Until it's set, the staff page stays locked.
+- **iPad setup:** open the waiver page in Safari → Share → *Add to Home Screen* (it opens full screen). Settings → Accessibility → *Guided Access* keeps guests on that one page.
+- Needs internet on the iPad. If the connection drops, the page says so; keep a few paper waivers as a backup.
+- Both pages are hidden from search engines and not linked from the menus.
+
 ## Contact form
 Messages are collected by Netlify Forms. In Netlify → Forms → `contact` → Form notifications, add your email to be notified of each message.
 

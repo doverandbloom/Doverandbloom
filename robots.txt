@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /order-confirmed.html
+Disallow: /waiver.html
+Disallow: /staff-waivers.html
 
 Sitemap: https://doverandbloom.com/sitemap.xml
