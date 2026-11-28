@@ -1401,3 +1401,8 @@ body.kiosk { background: var(--cream); }
 .wr-sig { width: 100%; max-height: 110px; object-fit: contain; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
 @media (max-width: 640px) { .waiver-rec, .staff-tools { grid-template-columns: 1fr; } }
 @media print { .kiosk-head, .staff-tools, .staff-login { display: none !important; } body.kiosk { background: #fff; } .waiver-rec { border-color: #999; } }
+
+/* quantity dropdown on dahlia tuber pages */
+.tv-qty { display: flex; align-items: center; gap: 12px; margin: 4px 0 12px; font-family: var(--font-display); font-size: .84rem; letter-spacing: .12em; text-transform: uppercase; color: var(--green-soft); }
+.tv-qty select { font: inherit; font-family: var(--font-body); font-size: 1.05rem; letter-spacing: 0; text-transform: none; padding: 8px 34px 8px 14px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--green); min-width: 84px; }
+.tv-qty select:disabled { opacity: .55; cursor: not-allowed; }

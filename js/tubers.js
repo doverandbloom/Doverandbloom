@@ -112,10 +112,13 @@
           <h1>${esc(t.title)}</h1>
           <p class="tv-price">${money(t.price)} <span>per tuber</span></p>
           ${t.colors.length ? `<p class="tv-pills">${t.colors.map((c) => `<span class="tv-pill">${dot(t, c)}${esc(COLORS[c].label)}</span>`).join("")}</p>` : ""}
+          <label class="tv-qty">Quantity
+            <select${t.soldOut ? " disabled" : ""} aria-label="Quantity">${Array.from({ length: CATALOG_SETTINGS.maxTicketsPerOrder }, (_, i) => `<option value="${i + 1}">${i + 1}</option>`).join("")}</select>
+          </label>
           ${t.soldOut
             ? `<button type="button" class="tv-status" disabled>Sold out</button>
                <p class="tv-waitlist">Want this one next season? <a href="contact.html#tubers">Join the waitlist</a></p>`
-            : `<button type="button" class="btn tv-buy" data-product="${t.id}">Add to basket</button>`}
+            : `<button type="button" class="btn tv-buy" data-product="${t.id}" data-qty-from=".tv-qty select">Add to basket</button>`}
           <p class="tv-desc">${esc(desc)}</p>
           ${t.note ? `<p class="tv-desc tv-desc--note">${esc(t.note)}</p>` : ""}
           ${glance.length ? `<h3 class="tv-h">At a glance</h3>

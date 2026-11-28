@@ -384,7 +384,12 @@
     const p = CATALOG[btn.dataset.product];
     if (!p) return;
     if (needsBooking(p) || p.kind === "class") openBooking(btn.dataset.product, btn.dataset.date);
-    else addToBasket({ id: btn.dataset.product, qty: 1 });
+    else {
+      // a quantity dropdown next to the button (e.g. dahlia tuber pages)
+      const pick = btn.dataset.qtyFrom && btn.closest("div, section, article")?.querySelector(btn.dataset.qtyFrom);
+      const qty = Math.max(1, Math.min(parseInt(pick?.value, 10) || 1, S.maxTicketsPerOrder));
+      addToBasket({ id: btn.dataset.product, qty });
+    }
   });
 
   // Clear basket after a successful order; note a cancelled checkout
